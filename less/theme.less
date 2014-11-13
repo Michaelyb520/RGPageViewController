@@ -1,0 +1,136 @@
+@import "bootstrap.less";
+
+* {
+    outline: none;
+}
+
+#forkme {
+    color: @link-color;
+
+    &:hover {
+        color: lighten(@link-color, 25%)
+    }
+
+    span:first-child {
+        display: inline-block;
+        margin: 0 5px;
+        vertical-align: super;
+    }
+}
+
+body > .container {
+    padding: 60px 92px;
+
+    @media (max-width: @screen-xs-max) {
+        padding: 20px 15px;
+    }
+}
+
+.page-header {
+    @media (max-width: @screen-xs-max) {
+        word-wrap: break-word;
+    }
+}
+
+.navbar-brand {
+    @media (max-width: @screen-xs-max) {
+        padding: 15px 0;
+    }
+}
+
+.navbar-brand-image {
+    @media (max-width: @screen-xs-max) {
+        padding: 9px 10px 9px 15px;
+
+        > img {
+            width: 32px;
+            height: 32px;
+        }
+    }
+}
+
+body > .footer {
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    min-height: 50px;
+    line-height: 50px;
+    background-color: #f8f8f8;
+    border-color: #e7e7e7;
+    border-width:  1px 0 0;
+    border-style: solid;
+
+    .container {
+        padding: 0 92px;
+    }
+
+    * {
+        margin: 0;
+    }
+
+    @media (max-width: @screen-xs-max) {
+        line-height: 1.4;
+
+        .container {
+            padding: 10px 15px;
+
+            [class^="col-"], [class*=" col-"] {
+                padding: 0;
+            }
+        }
+    }
+}
+
+.padding-small {
+    padding: 9px !important;
+}
+
+.row {
+    margin: 0;
+}
+
+#carousel-screenshots {
+    @media (max-width: @screen-xs-max) {
+        img {
+            width: 180px;
+        }
+    }
+}
+
+.carousel-control {
+    left: -15px;
+    background: transparent !important;
+
+    &.right {
+        right: -15px;
+
+        [class^="icon-"], [class*=" icon-"] {
+            right: 0;
+            left: auto;
+        }
+    }
+
+    [class^="icon-"], [class*=" icon-"] {
+        position: absolute;
+        top: 50%;
+        left: 0;
+        height: 60px;
+        margin-top: -30px;
+        color: @gray-base;
+        text-shadow: none;
+        font-size: 56px;
+    }
+
+    @media (max-width: @screen-xs-max) {
+        [class^="icon-"], [class*=" icon-"] {
+            height: 44px;
+            margin-top: -22px;
+            font-size: 44px;
+        }
+    }
+}
+
+.tooltip-inner {
+    white-space: nowrap;
+    max-width: none;
+}
