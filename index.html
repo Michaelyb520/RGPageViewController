@@ -72,13 +72,13 @@
                 <div id="carousel-screenshots" class="carousel slide" data-ride="carousel" data-interval="false" data-pause="">
                     <div class="carousel-inner" role="listbox">
                         <div class="item active">
-                            <img src="images/tabbar_top.png" alt="Tabbar on Top" width="210" class=" center-block">
+                            <img src="images/default.png" alt="Tabbar on Top" width="210" class=" center-block">
                         </div>
                         <div class="item">
-                            <img src="images/tabbar_bottom.png" alt="Tabbar on Bottom" width="210" class=" center-block">
+                            <img src="images/uitabbar.png" alt="Tabbar on Bottom" width="210" class=" center-block">
                         </div>
                         <div class="item">
-                            <img src="images/tabbar_custom.png" alt="Tabbar fully customized" width="210" class=" center-block">
+                            <img src="images/colored.png" alt="Tabbar fully customized" width="210" class=" center-block">
                         </div>
                     </div>
                     <a class="left carousel-control" href="#" role="button" data-slide="prev">
@@ -109,7 +109,7 @@
                                 <h3>Classic UITabBar</h3>
                                 <ul class="list-unstyled">
                                     <li>Tabbar attached to bottom</li>
-                                    <li>Height: 44px</li>
+                                    <li>Height: 49px</li>
                                     <li>Tabs with selected state</li>
                                 </ul>
                             </div>
@@ -131,6 +131,224 @@
         <h2>Installation</h2>
         <p class="lead">Simply copy <a href="https://github.com/eRGoon/RGPageViewController/blob/master/RGPageViewController.swift" data-toggle="tooltip" data-placement="top" title="RGPageViewController">RGPageViewController</a> to your project.</p>
         <h2>Usage</h2>
+        <p class="lead">Subclass <code>RGPageViewController</code> and implement it's <code>datasource</code> and <code>delegate</code> methods.</p>
+        <h3>RGPageViewControllerDataSource</h3>
+        <div class="row margin-top">
+            <div class="col-xs-12">
+                <pre class="bg-danger" data-toggle="tooltip" data-placement="top" title="Subclasses must implement this method">func numberOfPagesForViewController(pageViewController: RGPageViewController) -> Int</pre>
+            </div>
+            <div class="col-xs-4 col-sm-2">
+                <b>Description:</b>
+            </div>
+            <div class="col-xs-8 col-sm-10">
+                Asks the datasource about the amount of pages.
+            </div>
+            <div class="col-xs-4 col-sm-2">
+                <b>Parameters:</b>
+            </div>
+            <div class="col-xs-8 col-sm-10">
+                <ul class="list-unstyled">
+                    <li><samp><strong>pageViewController</strong></samp><br>the RGPageViewController instance that's subject to.</li>
+                </ul>
+            </div>
+            <div class="col-xs-4 col-sm-2">
+                <b>Returns:</b>
+            </div>
+            <div class="col-xs-8 col-sm-10">
+                the total number of pages.
+            </div>
+        </div>
+        <div class="row margin-top">
+            <div class="col-xs-12">
+                <pre class="bg-danger" data-toggle="tooltip" data-placement="top" title="Subclasses must implement this method">func tabViewForPageAtIndex(pageViewController: RGPageViewController, index: Int) -> UIView</pre>
+            </div>
+            <div class="col-xs-4 col-sm-2">
+                <b>Description:</b>
+            </div>
+            <div class="col-xs-8 col-sm-10">
+                Asks the datasource to give a view to display as a tab item.
+            </div>
+            <div class="col-xs-4 col-sm-2">
+                <b>Parameters:</b>
+            </div>
+            <div class="col-xs-8 col-sm-10">
+                <ul class="list-unstyled">
+                    <li><samp><strong>pageViewController</strong></samp><br>the RGPageViewController instance that's subject to.</li>
+                    <li><samp><strong>index</strong></samp><br>the index of the tab whose view is asked.</li>
+                </ul>
+            </div>
+            <div class="col-xs-4 col-sm-2">
+                <b>Returns:</b>
+            </div>
+            <div class="col-xs-8 col-sm-10">
+                a UIView instance that will be shown as tab at the given index.
+            </div>
+        </div>
+        <div class="row margin-top">
+            <div class="col-xs-12">
+                <pre class="bg-danger" data-toggle="tooltip" data-placement="top" title="Subclasses must implement this method">func viewControllerForPageAtIndex(pageViewController: RGPageViewController, index: Int) -> UIViewController?</pre>
+            </div>
+            <div class="col-xs-4 col-sm-2">
+                <b>Description:</b>
+            </div>
+            <div class="col-xs-8 col-sm-10">
+                Asks the datasource to give a <samp><strong>UIViewController</strong></samp> to display as a page.
+            </div>
+            <div class="col-xs-4 col-sm-2">
+                <b>Parameters:</b>
+            </div>
+            <div class="col-xs-8 col-sm-10">
+                <ul class="list-unstyled">
+                    <li><samp><strong>pageViewController</strong></samp><br>the RGPageViewController instance that's subject to.</li>
+                    <li><samp><strong>index</strong></samp><br>the index of the content whose view is asked.</li>
+                </ul>
+            </div>
+            <div class="col-xs-4 col-sm-2">
+                <b>Returns:</b>
+            </div>
+            <div class="col-xs-8 col-sm-10">
+                a UIViewController instance whose view will be shown as content at the given index.
+            </div>
+        </div>
+        <h3>RGPageViewControllerDelegate</h3>
+        <div class="row margin-top">
+            <div class="col-xs-12">
+                <pre class="bg-success" data-toggle="tooltip" data-placement="top" title="Subclasses can implement this method">optional func didChangePageToIndex(index: Int)</pre>
+            </div>
+            <div class="col-xs-4 col-sm-2">
+                <b>Description:</b>
+            </div>
+            <div class="col-xs-8 col-sm-10">
+                Delegate objects can implement this method if they want to be informed when a page changed.
+            </div>
+            <div class="col-xs-4 col-sm-2">
+                <b>Parameters:</b>
+            </div>
+            <div class="col-xs-8 col-sm-10">
+                <ul class="list-unstyled">
+                    <li><samp><strong>index</strong></samp><br>the index of the current page.</li>
+                </ul>
+            </div>
+        </div>
+        <div class="row margin-top">
+            <div class="col-xs-12">
+                <pre class="bg-success" data-toggle="tooltip" data-placement="top" title="Subclasses can implement this method">optional func heightForTabbar() -> CGFloat</pre>
+            </div>
+            <div class="col-xs-4 col-sm-2">
+                <b>Description:</b>
+            </div>
+            <div class="col-xs-8 col-sm-10">
+                Delegate objects can implement this method to set a custom height for the tab view.
+            </div>
+            <div class="col-xs-4 col-sm-2">
+                <b>Returns:</b>
+            </div>
+            <div class="col-xs-8 col-sm-10">
+                the height of the tab view.
+            </div>
+        </div>
+        <div class="row margin-top">
+            <div class="col-xs-12">
+                <pre class="bg-success" data-toggle="tooltip" data-placement="top" title="Subclasses can implement this method">optional func heightForIndicator() -> CGFloat</pre>
+            </div>
+            <div class="col-xs-4 col-sm-2">
+                <b>Description:</b>
+            </div>
+            <div class="col-xs-8 col-sm-10">
+                Delegate objects can implement this method to set a custom height for the tab indicator.
+            </div>
+            <div class="col-xs-4 col-sm-2">
+                <b>Returns:</b>
+            </div>
+            <div class="col-xs-8 col-sm-10">
+                the height of the tab indicator.
+            </div>
+        </div>
+        <div class="row margin-top">
+            <div class="col-xs-12">
+                <pre class="bg-success" data-toggle="tooltip" data-placement="top" title="Subclasses can implement this method">optional func widthForTabAtIndex(index: Int) -> CGFloat</pre>
+            </div>
+            <div class="col-xs-4 col-sm-2">
+                <b>Description:</b>
+            </div>
+            <div class="col-xs-8 col-sm-10">
+                Delegate objects can implement this method if tabs use dynamic width or to overwrite the default width for tabs.
+            </div>
+            <div class="col-xs-4 col-sm-2">
+                <b>Parameters:</b>
+            </div>
+            <div class="col-xs-8 col-sm-10">
+                <ul class="list-unstyled">
+                    <li><samp><strong>index</strong></samp><br>the index of the tab.</li>
+                </ul>
+            </div>
+            <div class="col-xs-4 col-sm-2">
+                <b>Returns:</b>
+            </div>
+            <div class="col-xs-8 col-sm-10">
+                the width for the tab at the given index.
+            </div>
+        </div>
+        <div class="row margin-top">
+            <div class="col-xs-12">
+                <pre class="bg-success" data-toggle="tooltip" data-placement="top" title="Subclasses can implement this method">optional func positionForTabbar(bar: UIBarPositioning) -> UIBarPosition</pre>
+            </div>
+            <div class="col-xs-4 col-sm-2">
+                <b>Description:</b>
+            </div>
+            <div class="col-xs-8 col-sm-10">
+                Delegate objects can implement this method to specify the position of the tabbar.
+            </div>
+            <div class="col-xs-4 col-sm-2">
+                <b>Parameters:</b>
+            </div>
+            <div class="col-xs-8 col-sm-10">
+                <ul class="list-unstyled">
+                    <li><samp><strong>bar</strong></samp><br>the tabbar</li>
+                </ul>
+            </div>
+            <div class="col-xs-4 col-sm-2">
+                <b>Returns:</b>
+            </div>
+            <div class="col-xs-8 col-sm-10">
+                the position for the tabbar.
+            </div>
+        </div>
+        <div class="row margin-top">
+            <div class="col-xs-12">
+                <pre class="bg-success" data-toggle="tooltip" data-placement="top" title="Subclasses can implement this method">optional func colorForTabIndicator() -> UIColor</pre>
+            </div>
+            <div class="col-xs-4 col-sm-2">
+                <b>Description:</b>
+            </div>
+            <div class="col-xs-8 col-sm-10">
+                Delegate objects can implement this method to specify the color of the tab indicator.
+            </div>
+            <div class="col-xs-4 col-sm-2">
+                <b>Returns:</b>
+            </div>
+            <div class="col-xs-8 col-sm-10">
+                the color for the tab indicator.
+            </div>
+        </div>
+        <div class="row margin-top">
+            <div class="col-xs-12">
+                <pre class="bg-success" data-toggle="tooltip" data-placement="top" title="Subclasses can implement this method">optional func tintColorForTabBar() -> UIColor?</pre>
+            </div>
+            <div class="col-xs-4 col-sm-2">
+                <b>Description:</b>
+            </div>
+            <div class="col-xs-8 col-sm-10">
+                Delegate objects can implement this method to specify a tint color for the tabbar.
+            </div>
+            <div class="col-xs-4 col-sm-2">
+                <b>Returns:</b>
+            </div>
+            <div class="col-xs-8 col-sm-10">
+                the tint color for the tabbar.
+            </div>
+        </div>
+        <h2>Examples</h2>
         <div class="row">
             <div class="col-xs-12"></div>
         </div>
